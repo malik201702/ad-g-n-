@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #0f0c29;
+  font-family: 'Pacifico', cursive;
+  color: #fff;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,0,150,0.2) 0%, rgba(0,0,0,0.9) 80%);
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+}
+
+.heart {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(45deg, #ff0844, #ffb199);
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 50px rgba(255, 0, 150, 0.8);
+  border-radius: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.heart::before, .heart::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -60px;
+  left: 0;
+}
+
+.heart::after {
+  left: 60px;
+  top: 0;
+}
+
+.heart:hover {
+  transform: rotate(-45deg) scale(1.2);
+  box-shadow: 0 0 80px #ff007f, 0 0 120px #ff007f;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff6ec4;
+  transition: 0.4s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #ff007f;
+}
+
+.text {
+  font-size: 24px;
+  opacity: 0;
+  animation: fadeIn 4s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.floating-hearts span {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  animation: float 6s linear forwards;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-700px) scale(0.5); opacity: 0; }
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
